@@ -17,6 +17,17 @@
               aria-describedby="helpId"
             />
           </div>
+          <div class="form-group">
+            <label for="" class="form-label mt-3">Descripcion</label>
+            <input
+              type="text"
+              class="form-control"
+              name="product_desc"
+              v-model="producto.product_desc"
+              id="product_desc"
+              
+            />
+          </div>
 
           <div class="form-group">
             <label for="" class="form-label mt-3">Precio</label>
@@ -30,7 +41,23 @@
               placeholder="Ingrese el precio del producto"
               aria-describedby="helpId"
             />
-          
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label mt-3">Categoria</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="product_category"
+              name="product_category"
+              v-model="producto.product_category"
+            >
+              <option selected>Selecciona la categoria</option>
+              <option value="Comidas">Comidas</option>
+              <option value="Bebidas">Bebidas</option>
+              <option value="Calzado">Calzado</option>
+              <option value="Limpieza">Limpieza</option>
+              <option value="Tecnologia">Tecnologia</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -47,7 +74,9 @@
             />
           </div>
           <div class="mt-4">
-            <router-link :to="{ name: 'Listar' }" class="btn btn-outline-secondary me-1"
+            <router-link
+              :to="{ name: 'Listar' }"
+              class="btn btn-outline-secondary me-1"
               ><i class="fa-solid fa-chevron-left"></i> Volver</router-link
             >
             <button type="submit" class="btn btn-success">Agregar</button>
@@ -58,9 +87,9 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "CrearProduct",
+  name: 'CrearProduct',
   data() {
     return {
       producto: {},
@@ -69,15 +98,17 @@ export default {
   methods: {
     agregarRegistro() {
       axios
-        .post("http://localhost:8084/api/v1/productos/", {
+        .post('http://localhost:8084/api/v1/productos/', {
           product_name: this.producto.product_name,
+          product_desc: this.producto.product_desc,
           product_price: this.producto.product_price,
+          product_category: this.producto.product_category,
           product_stock: this.producto.product_stock,
         })
         .then((respuesta) => respuesta.data)
         .then((datosRespuesta) => {
           console.log(datosRespuesta);
-          window.location.href = "listar";
+          window.location.href = 'listar';
         });
     },
   },

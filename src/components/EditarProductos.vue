@@ -17,6 +17,17 @@
               aria-describedby="helpId"
             />
           </div>
+          <div class="form-group">
+            <label for="" class="form-label mt-3">Descripcion</label>
+            <input
+             type="text"
+              class="form-control"
+              name="product_desc"
+              v-model="product.product_desc"
+              id="product_desc"
+              
+            />
+          </div>
 
           <div class="form-group">
             <label for="" class="form-label mt-3">Precio</label>
@@ -30,6 +41,23 @@
               placeholder="Ingrese el precio del producto"
               aria-describedby="helpId"
             />
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label mt-3">Categoria</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="product_category"
+              name="product_category"
+              v-model="product.product_category"
+            >
+              <option selected >Selecciona la categoria</option>
+              <option value="Comidas">Comidas</option>
+              <option value="Bebidas">Bebidas</option>
+              <option value="Calzado">Calzado</option>
+              <option value="Limpieza">Limpieza</option>
+              <option value="Tecnologia">Tecnologia</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -86,7 +114,9 @@ export default {
         .put(`http://localhost:8084/api/v1/productos/${this.$route.params.id}`, {
             id: this.$route.params.id,
           product_name: this.product.product_name,
+          product_desc: this.product.product_desc,
           product_price: this.product.product_price,
+          product_category: this.product.product_category,
           product_stock: this.product.product_stock,
         })
         .then((respuesta) => respuesta.data)

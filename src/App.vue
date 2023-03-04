@@ -18,7 +18,7 @@
     </div>
     <div class="collapse navbar-collapse d-flex flex-row-reverse bd-highlight" id="navbarNavDropdown">
       <div class="p-2 bd-highlight">
-      <ul class="navbar-nav ">
+      <ul class="navbar-nav">
           <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Eric <i class="fa-solid fa-user"></i>
