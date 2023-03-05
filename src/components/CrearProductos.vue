@@ -51,7 +51,7 @@
               name="product_category"
               v-model="producto.product_category"
             >
-              <option selected>Selecciona la categoria</option>
+              
               <option value="Comidas">Comidas</option>
               <option value="Bebidas">Bebidas</option>
               <option value="Calzado">Calzado</option>
@@ -88,8 +88,10 @@
 </template>
 <script>
 import axios from 'axios';
+
 export default {
   name: 'CrearProduct',
+  
   data() {
     return {
       producto: {},
@@ -97,8 +99,9 @@ export default {
   },
   methods: {
     agregarRegistro() {
+      const apiUrl = process.env.VUE_APP_API_URL
       axios
-        .post('http://localhost:8084/api/v1/productos/', {
+        .post(apiUrl+'/productos', {
           product_name: this.producto.product_name,
           product_desc: this.producto.product_desc,
           product_price: this.producto.product_price,

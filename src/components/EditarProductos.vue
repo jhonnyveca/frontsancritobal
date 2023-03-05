@@ -99,8 +99,9 @@ export default {
     },
     methods:{
         getInfoById(){
+          const apiUrl = process.env.VUE_APP_API_URL
       axios
-        .get("http://localhost:8084/api/v1/productos/"+this.$route.params.id)
+        .get(apiUrl+"/productos/"+this.$route.params.id)
         .then((respuesta) => respuesta.data)
         .then((data) => {
           console.log(data);
@@ -110,8 +111,9 @@ export default {
         .catch(console.error);
         },
         editarRegistro(){
+          const apiUrl = process.env.VUE_APP_API_URL
         axios
-        .put(`http://localhost:8084/api/v1/productos/${this.$route.params.id}`, {
+        .put(apiUrl+`/productos/${this.$route.params.id}`, {
             id: this.$route.params.id,
           product_name: this.product.product_name,
           product_desc: this.product.product_desc,

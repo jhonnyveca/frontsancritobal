@@ -31,7 +31,7 @@
             :filters="filters"
             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
             :rowsPerPageOptions="[5, 10, 25]"
-            currentPageReportTemplate="Mostrando {first} al {last} de {totalRecords} productos"
+            currentPageReportTemplate="Mostrando del {first} al {last} de un total de {totalRecords} productos"
             showGridlines
             responsiveLayout="scroll"
           >
@@ -127,6 +127,7 @@ import { jsPDF } from "jspdf";
 import 'jspdf-autotable'
 
 export default {
+  
   data() {
     return {
       products: [],
@@ -141,8 +142,9 @@ export default {
   },
   methods: {
     getProducts() {
+      const apiUrl = process.env.VUE_APP_API_URL
       axios
-        .get('http://localhost:8084/api/v1/productos/')
+        .get(apiUrl+'/productos/')
         .then((respuesta) => respuesta.data)
         .then((data) => {
           console.log(data);
@@ -154,6 +156,7 @@ export default {
         .catch(console.error);
     },
     deleteUser(id) {
+      const apiUrl = process.env.VUE_APP_API_URL
       this.$swal
         .fire({
           title: '¿Desea eliminar este producto?',
@@ -172,7 +175,7 @@ export default {
               'success'
             );
             axios
-              .delete(`http://localhost:8084/api/v1/productos/${id}`)
+              .delete(apiUrl+`/productos/${id}`)
               .then((respuesta) => respuesta.data)
               .then((data) => {
                 console.log(data);
