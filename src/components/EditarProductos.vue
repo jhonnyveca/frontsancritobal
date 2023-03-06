@@ -52,11 +52,17 @@
               v-model="product.product_category"
             >
               <option selected >Selecciona la categoria</option>
-              <option value="Comidas">Comidas</option>
-              <option value="Bebidas">Bebidas</option>
-              <option value="Calzado">Calzado</option>
-              <option value="Limpieza">Limpieza</option>
-              <option value="Tecnologia">Tecnologia</option>
+              <option value="Algodon">Algodon</option>
+              <option value="Lana Sigma">Lana Sigma</option>
+              <option value="Alpacril">Alpacril</option>
+              <option value="Alpaca baby">Alpaca baby</option>
+              <option value="Tela PañoLensi">Tela PañoLensi</option>
+              <option value="Alpaca Boom">Alpaca Boom</option>
+              <option value="Tela china">Tela china</option>
+              <option value="Tela Hindú">Tela Hindú</option>
+              <option value="Toallas">Toallas</option>
+              <option value="Algodon Sigma">Algodon Sigma</option>
+              <option value="Algodon Plus">Algodon Plus</option>
             </select>
           </div>
 
